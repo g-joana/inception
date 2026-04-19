@@ -1,0 +1,17 @@
+services:
+  mariadb:
+    container_name: mariadb
+    ports:
+      - 3306:3306
+    build: ./mariadb
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    restart: on-failure
+
+volumes:
+  mariadb-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/g-joana/data/mariadb
