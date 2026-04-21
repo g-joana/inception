@@ -27,7 +27,7 @@ if [ ! -f wp-config.php ]; then
         --url="https://$WP_HOST" \
         --title="$WP_TITLE" \
         --admin_user="$WP_ADMIN_USER" \
-        --admin_password="$(cat /run/secrets/wp_admin_password)" \
+        --admin_password="$WP_ADMIN_PASSWORD" \
         --admin_email="$WP_ADMIN_EMAIL" \
         --skip-email
 
@@ -35,7 +35,7 @@ if [ ! -f wp-config.php ]; then
         --allow-root \
         "$WP_USER" "$WP_USER_EMAIL" \
         --role=editor \
-        --user_pass="$(cat /run/secrets/wp_user_password)"
+        --user_pass="$WP_USER_PASSWORD"
 fi
 
 exec php-fpm8.2 -F
