@@ -8,4 +8,5 @@ COPY tools/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 3306
+RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
 ENTRYPOINT ["/entrypoint.sh"]
