@@ -24,6 +24,7 @@ Prerequisites: Docker, Docker Compose, `make`, and `jgils.42.fr` mapped to
 
 ```bash
 make        # build images and start the stack
+make down   # stop the containers
 make clean  # stop and remove images
 make fclean # stop, remove images and wipe persistent data
 make re     # clean rebuild
