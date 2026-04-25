@@ -2,6 +2,7 @@ COMPOSE = docker compose -f srcs/docker-compose.yml
 
 all:
 	mkdir -p /home/jgils/data/wordpress /home/jgils/data/mariadb
+	cp /home/jgils/secrets .
 	$(COMPOSE) up --build
 
 down:
