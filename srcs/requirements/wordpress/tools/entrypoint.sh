@@ -8,6 +8,9 @@ DB_PASSWORD="$(cat /run/secrets/db_password)"
 mkdir -p /var/www/html
 cd /var/www/html
 
+until mariadb-admin ping -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" --password="$DB_PASSWORD" --silent > /dev/null 2>&1; do
+    sleep 1
+done
 
 if [ ! -f wp-config.php ]; then
 

@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y mariadb-server \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY tools/entrypoint.sh /entrypoint.sh
+COPY conf/my.cnf /etc/mysql/mariadb.conf.d/60-inception.cnf
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 3306
